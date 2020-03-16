@@ -35,6 +35,7 @@
                   <div class="media-body">
                     <h5 class="text-white">Confirmed Cases</h5>
                     <h4 class="mb-0">{{ results.confirmed.value }}</h4>
+                    <p class="text-white">Lastest Update:  {{ results.lastUpdate }}</p>
                   </div>
                 </div>
               </div>
@@ -47,6 +48,7 @@
                   <div class="media-body">
                     <h5 class="text-white">Recovered</h5>
                     <h4 class="mb-0">{{ results.recovered.value }}</h4>
+                    <p class="text-white">Lastest Update:  {{ results.lastUpdate }}</p>
                   </div>
                 </div>
               </div>
@@ -59,6 +61,7 @@
                   <div class="media-body">
                     <h5 class="text-white">Deaths</h5>
                     <h4 class="mb-0">{{ results.deaths.value }}</h4>
+                    <p class="text-white">Lastest Update:  {{ results.lastUpdate }}</p>
                   </div>
                 </div>
               </div>
@@ -68,15 +71,20 @@
         <!-- end row -->
       </div>
     </div>
+    <DeathMap />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import axios from "axios";
+import DeathMap from '@/components/DeathMap'
+
 export default {
   name: "Home",
-  components: {},
+  components: {
+    DeathMap
+  },
   data() {
     return {
       countries: [],
