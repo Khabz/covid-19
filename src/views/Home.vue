@@ -90,6 +90,9 @@ export default {
       results: []
     };
   },
+  watch: {
+    
+  },
   methods: {
     getStatsByCountry(val) {
       if(val == null) {
@@ -98,7 +101,8 @@ export default {
         axios
           .get("https://covid19.mathdro.id/api/countries/" + val)
           .then(response => {
-            this.results = response.data.deaths;
+            this.results = response.data;
+            console.log(this.results)
           });
       }
     }
