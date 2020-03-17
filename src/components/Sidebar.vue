@@ -5,9 +5,14 @@
         <div class="collapse navbar-collapse" id="topnav-menu-content">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <router-link class="nav-link" to="/">
                 <i class="bx bx-home-circle mr-2"></i>Dashboard
-              </a>
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" to="/death">
+                <i class="bx bx-shocked mr-2"></i>Death Cases
+              </router-link>
             </li>
           </ul>
         </div>

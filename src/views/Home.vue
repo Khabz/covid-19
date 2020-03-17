@@ -35,7 +35,7 @@
                   <div class="media-body">
                     <h5 class="text-white">Confirmed Cases</h5>
                     <h4 class="mb-0">{{ results.confirmed.value }}</h4>
-                    <p class="text-white">Lastest Update:  {{ results.lastUpdate }}</p>
+                    <p class="text-white">Updated:  {{ moment(results.lastUpdate ).startOf('day').fromNow() }}</p>
                   </div>
                 </div>
               </div>
@@ -48,7 +48,7 @@
                   <div class="media-body">
                     <h5 class="text-white">Recovered</h5>
                     <h4 class="mb-0">{{ results.recovered.value }}</h4>
-                    <p class="text-white">Lastest Update:  {{ results.lastUpdate }}</p>
+                    <p class="text-white">Updated:  {{ moment(results.lastUpdate ).startOf('day').fromNow() }}</p>
                   </div>
                 </div>
               </div>
@@ -61,7 +61,7 @@
                   <div class="media-body">
                     <h5 class="text-white">Deaths</h5>
                     <h4 class="mb-0">{{ results.deaths.value }}</h4>
-                    <p class="text-white">Lastest Update:  {{ results.lastUpdate }}</p>
+                    <p class="text-white">Updated:  {{ moment(results.lastUpdate ).startOf('day').fromNow() }}</p>
                   </div>
                 </div>
               </div>
@@ -71,19 +71,17 @@
         <!-- end row -->
       </div>
     </div>
-    <DeathMap />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import axios from "axios";
-import DeathMap from '@/components/DeathMap'
 
 export default {
   name: "Home",
   components: {
-    DeathMap
+ 
   },
   data() {
     return {
@@ -100,7 +98,7 @@ export default {
         axios
           .get("https://covid19.mathdro.id/api/countries/" + val)
           .then(response => {
-            this.results = response.data;
+            this.results = response.data.deaths;
           });
       }
     }
